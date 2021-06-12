@@ -7,6 +7,7 @@ class RoomChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak
+  def speak(message)
+    Post.create(content: messega['message'])
   end
 end
