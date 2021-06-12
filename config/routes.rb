@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'rooms/show'
+  root to: 'homes#top'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  root to: 'homes#top'
+  resources :rooms, only: [:show, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
