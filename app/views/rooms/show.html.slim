@@ -2,7 +2,7 @@ br
 | room: #{@room.name}
 br
 
-input type="text" data-behavior="room_speaker"
+input type="text" data-behavior="room_speaker" data-user="#{current_user.id}" data-room="#{@room.id}"
 
 #posts
   = render 'post', collection: @posts
