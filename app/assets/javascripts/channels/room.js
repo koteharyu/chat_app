@@ -20,7 +20,7 @@ window.addEventListener("keypress", function (e) {
   if (e.keyCode === 13) {
     App.room.speak(e.target.value);
     e.target.value = '';
-    e.alert()
+    alert()
     e.preventDefault();
   }
 })
