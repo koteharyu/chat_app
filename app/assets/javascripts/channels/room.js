@@ -1,17 +1,26 @@
 App.room = App.cable.subscriptions.create("RoomChannel", {
-  connected: function() {
+  connected: function () {
     // Called when the subscription is ready for use on the server
   },
 
-  disconnected: function() {
+  disconnected: function () {
     // Called when the subscription has been terminated by the server
   },
 
-  received: function(data) {
+  received: function (data) {
     // Called when there's incoming data on the websocket for this channel
   },
 
-  speak: function() {
-    return this.perform('speak');
+  speak: function (message) {
+    return this.perform('speak', { message: message });
   }
 });
+
+window.addEventListener("keypress", function (e) {
+  if (e.keyCode === 13) {
+    App.room.speak(e.target.value);
+    e.target.value = '';
+    e.alert()
+    e.preventDefault();
+  }
+})
