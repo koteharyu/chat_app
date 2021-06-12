@@ -1,2 +1,6 @@
-h1 Rooms#show
-p Find me in app/views/rooms/show.html.slim
+| room: #{@room.name}
+
+input type="text" data-behavior="room_speaker"
+
+ul#posts
+  = render @posts
